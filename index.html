@@ -4,114 +4,457 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peerapon Roykaew — Video Editor & Colorist Portfolio</title>
-    <!-- ฟอนต์ Sarabun จาก Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b0b0e;
-            --card-bg: #141419;
-            --accent-color: #e50914;
-            --text-main: #ffffff;
-            --text-muted: #9aa0a6;
-            --border-color: #27272f;
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --card-border: #eaedf0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Sarabun', sans-serif;
+            font-family: 'Sarabun', 'Plus Jakarta Sans', sans-serif;
+            cursor: default;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 20px;
+            overflow-x: hidden;
+            padding-top: 0;
         }
 
-        header {
-            text-align: center;
-            padding: 50px 20px 30px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        /* Filter Navigation */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            background-color: var(--card-bg);
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-            border-color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+        /* --- Top Announcement Bar (สีเทาอ่อนจางๆ สไตล์มินิมอลแบบตัวอย่าง) --- */
+        .announcement-bar {
+            background-color: #f1f3f5; 
+            color: #495057;          
+            font-size: 0.85rem;
+            padding: 9px 0;
+            font-weight: 500;
+            border-bottom: 1px solid #e9ecef;
+            width: 100%;
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeRight 35s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-right: 40px;
+        }
+
+        .marquee-content span, .marquee-content .big-smile {
+            color: #6c757d;
+        }
+
+        .marquee-content strong {
+            color: #212529;
+            font-weight: 700;
+        }
+
+        .marquee-content .big-smile {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* --- Top Navigation Bar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            gap: 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            color: inherit;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+        }
+
+        .nav-logo-img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
             display: block;
         }
 
+        .nav-menu {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #0f172a;
+        }
+
+        /* --- Search Bar --- */
+        .search-container {
+            flex: 1;
+            max-width: 350px;
+            background-color: #f1f5f9;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            background-color: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .search-container svg {
+            width: 15px;
+            height: 15px;
+            fill: #64748b;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            outline: none;
+            font-family: 'Sarabun', sans-serif;
+            cursor: text;
+        }
+
+        .search-input::placeholder {
+            color: #64748b;
+        }
+
+        /* --- Nav Right Actions --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-right a.auth-link {
+            color: #0f172a;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-bepro {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 7px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-bepro:hover {
+            background-color: #334155;
+        }
+
+        .btn-submit {
+            background-color: #ffffff;
+            color: #0f172a;
+            border: 1px solid var(--card-border);
+            padding: 7px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* --- Showcase Header Section --- */
+        .showcase-header {
+            text-align: center;
+            padding: 70px 20px 25px;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .showcase-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .showcase-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 4.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -2px;
+            line-height: 1.05;
+        }
+
+        /* --- Profile Header Section --- */
+        .profile-header-section {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 50px;
+            gap: 40px;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .profile-info .avatar-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .avatar-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--card-border);
+            background: #f1f5f9;
+        }
+
+        .pro-badge {
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .profile-info h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            color: var(--text-main);
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .profile-stats strong {
+            color: var(--text-main);
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-touch {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 11px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-touch:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        .btn-follow {
+            background-color: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 11px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-follow:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Profile Banner Right */
+        .profile-banner-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .banner-preview {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .trusted-brands {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--card-border);
+            padding-top: 12px;
+            font-weight: 600;
+        }
+
+        /* --- Navigation Tabs --- */
+        .dribbble-tabs {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tab-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+            padding: 9px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border-color: var(--card-border);
+        }
+
+        /* --- Portfolio Showcase Grid --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px 80px;
+        }
+
+        .portfolio-card {
+            background-color: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
         .portfolio-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--text-muted);
+            transform: translateY(-6px);
+            border-color: #cbd5e1;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
         }
 
         .card-thumbnail {
             position: relative;
             width: 100%;
-            height: 190px;
-            background-color: #1f1f27;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            height: 220px;
+            background-color: #f1f5f9;
             overflow: hidden;
         }
 
@@ -119,7 +462,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .portfolio-card:hover .card-thumbnail img {
@@ -132,24 +475,25 @@
 
         .category-tag {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-color);
-            margin-bottom: 8px;
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 800;
         }
 
         .portfolio-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
         .portfolio-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 0.88rem;
+            font-weight: 400;
         }
 
         .tech-tags {
@@ -160,78 +504,273 @@
         }
 
         .tech-badge {
-            background: #202029;
-            color: #b0b5bc;
-            font-size: 0.75rem;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.7rem;
             padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid #2d2d38;
+            border-radius: 5px;
+            border: 1px solid #e2e8f0;
+            font-weight: 600;
         }
 
         .hide {
             display: none !important;
         }
 
+        /* --- Floating Video Widget (ขนาดเล็กกะทัดรัด มุมขวาล่างสุด) --- */
+        .floating-video-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 180px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--card-border);
+            z-index: 9999;
+            animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .floating-video-widget.closed {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .video-container-box {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ปุ่มปิด (X) มุมขวาบน */
+        .close-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: #000000;
+        }
+
+        /* บอลลูนข้อความ Hello! ด้านซ้าย */
+        .hello-bubble {
+            position: absolute;
+            left: -75px;
+            top: 15px;
+            background-color: #2dd4bf;
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+            white-space: nowrap;
+            animation: bounceBubble 2s infinite ease-in-out;
+        }
+
+        @keyframes bounceBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         footer {
             text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 40px 20px;
             color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1150px) {
+            .nav-menu, .search-container { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            .showcase-title { font-size: 2.8rem; }
+            .profile-header-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 20px;
+            }
+            .profile-info .avatar-badge { justify-content: center; }
+            .profile-stats { justify-content: center; }
+            .profile-actions { justify-content: center; }
+            .profile-banner-card { display: none; }
+            .dribbble-tabs { flex-direction: column; align-items: stretch; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .profile-info h1 { font-size: 2.1rem; }
+            .floating-video-widget { width: 150px; bottom: 12px; right: 12px; }
+            .video-container-box { height: 180px; }
+            .hello-bubble { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Peerapon Roykaew</h1>
-        <p>Video Editor & Colorist Portfolio</p>
-    </header>
-
-    <!-- ปุ่มหัวข้อย่อยสำหรับกรองผลงาน -->
-    <div class="filter-container">
-        <button class="filter-btn active" onclick="filterPortfolio('all', this)">ทั้งหมด (All)</button>
-        <button class="filter-btn" onclick="filterPortfolio('tv', this)">รายการทีวี / สารคดี</button>
-        <button class="filter-btn" onclick="filterPortfolio('series', this)">ซีรีส์</button>
-        <button class="filter-btn" onclick="filterPortfolio('mv', this)">Music Video</button>
-        <button class="filter-btn" onclick="filterPortfolio('color', this)">Color Grading</button>
+    <!-- Floating Video Widget (มุมขวาล่างสุด ขนาดกะทัดรัด) -->
+    <div class="floating-video-widget" id="floatingWidget">
+        <button class="close-btn" onclick="closeWidget()" title="ปิด">×</button>
+        <div class="hello-bubble">Hello!</div>
+        <div class="video-container-box">
+            <!-- ใส่ไฟล์วิดีโอของคุณตรง src (รองรับ .mp4) -->
+            <video autoplay muted loop playsinline>
+                <source src="intro.mp4" type="video/mp4">
+                เบราว์เซอร์ของคุณไม่รองรับการแสดงผลวิดีโอ
+            </video>
+        </div>
     </div>
 
-    <!-- รายการผลงาน -->
+    <!-- Announcement Bar with Infinite Right Marquee -->
+    <div class="announcement-bar">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span><strong>zlatok_document.mkv</strong></span> <span class="big-smile">☺</span> 
+                <span>รับตัดงาน & ทำสี (Video Editing & Color Grading)</span> <span class="big-smile">☺</span> 
+                <span>zlatok_document.mkv</span> &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span><strong>zlatok_document.mkv</strong></span> <span class="big-smile">☺</span> 
+                <span>รับตัดงาน & ทำสี (Video Editing & Color Grading)</span> <span class="big-smile">☺</span> 
+                <span>zlatok_document.mkv</span> &nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left">
+            <a href="#" class="logo-wrapper">
+                <span class="logo-text">PEERAPON.ROY</span>
+                <img src="images/logo/logo.jpg" alt="Logo" class="nav-logo-img" onerror="this.onerror=null; this.src='logo.jpg';">
+            </a>
+            <div class="nav-menu">
+                <a href="#showcase">Explore</a>
+                <a href="#showcase">Directory</a>
+                <a href="#showcase">Academy</a>
+                <a href="#showcase">Jobs</a>
+                <a href="#showcase">Market</a>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by Inspiration" onkeyup="searchPortfolio()">
+        </div>
+
+        <div class="nav-right">
+            <a href="#showcase" class="auth-link">Log in</a>
+            <a href="#showcase" class="auth-link">Sign up</a>
+            <a href="#showcase" class="btn-bepro">Be Pro</a>
+            <a href="#showcase" class="btn-submit">Submit Website</a>
+        </div>
+    </nav>
+
+    <!-- Showcase Websites Header -->
+    <section class="showcase-header reveal">
+        <div class="showcase-subtitle">Honorable Mention - Oct 20, 2026</div>
+        <h1 class="showcase-title">SHOWCASE WEBSITES</h1>
+    </section>
+
+    <!-- Profile Header Section -->
+    <section class="profile-header-section reveal">
+        <div class="profile-info">
+            <div class="avatar-badge">
+                <img src="images/logo/logo.jpg" alt="Peerapon Roykaew" class="avatar-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                <span class="pro-badge">PRO SELECT</span>
+            </div>
+            <h1>Video Editor, Colorist & Post-Production Specialist</h1>
+            <div class="profile-stats">
+                <span><strong>Thai PBS</strong> Projects</span>
+                <span><strong>DaVinci Resolve</strong> Expert</span>
+                <span><strong>Cinematic</strong> Grading</span>
+            </div>
+            <div class="profile-actions">
+                <a href="#showcase" class="btn-touch">Get in touch</a>
+                <a href="#showcase" class="btn-follow">Explore Work</a>
+            </div>
+        </div>
+
+        <!-- Featured Banner Card Right -->
+        <div class="profile-banner-card">
+            <img src="images/jakraksurao.png" alt="Featured Project" class="banner-preview" onerror="this.onerror=null; this.src='jakraksurao.jpg';">
+            <div class="trusted-brands">
+                <span>Trusted TV Shows</span>
+                <span>Documentary & Series</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="dribbble-tabs reveal" id="showcase">
+        <div class="tab-list">
+            <button class="tab-btn active" onclick="filterPortfolio('all', this)">Work (All)</button>
+            <button class="tab-btn" onclick="filterPortfolio('tv', this)">TV / Documentary</button>
+            <button class="tab-btn" onclick="filterPortfolio('series', this)">Series</button>
+            <button class="tab-btn" onclick="filterPortfolio('mv', this)">Music Video</button>
+            <button class="tab-btn" onclick="filterPortfolio('color', this)">Color Grading</button>
+        </div>
+    </div>
+
+    <!-- Portfolio Grid -->
     <div class="portfolio-grid" id="portfolioGrid">
         
-        <!-- รายการที่ 1: จากรากสู่เรา -->
-        <a href="https://www.thaipbs.or.th/program/JakRakSuRao" target="_blank" class="portfolio-card" data-category="tv color">
+        <!-- Item 1: Ghost Stories -->
+        <a href="https://www.thaipbs.or.th/program/GhostStories" target="_blank" class="portfolio-card reveal" data-category="tv color">
             <div class="card-thumbnail">
-                <img src="images/jakraksurao.png" alt="สารคดี จากรากสู่เรา" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">🌾</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">สารคดี จากรากสู่เรา</p>
-                </div>
+                <img src="images/ghoststories.png" alt="สารคดี ภูตผีวิถีฅน" onerror="this.onerror=null; this.src='ghoststories.jpg';">
             </div>
             <div class="card-content">
-                <span class="category-tag">รายการทีวี / สารคดี</span>
-                <h3>จากรากสู่เรา</h3>
-                <p>งานตัดต่อและเกรดสีสารคดี ถ่ายทอดเรื่องราวรากเหง้า วัฒนธรรม และวิถีชีวิตผู้คน</p>
-                <div class="tech-tags">
-                    <span class="tech-badge">DaVinci Resolve</span>
-                    <span class="tech-badge">Documentary Grade</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- รายการที่ 2: ภูตผีวิถีฅน -->
-        <a href="https://www.thaipbs.or.th/program/GhostStories" target="_blank" class="portfolio-card" data-category="tv color">
-            <div class="card-thumbnail">
-                <img src="images/ghoststories.png" alt="สารคดี ภูตผีวิถีฅน" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">👻</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">สารคดี ภูตผีวิถีฅน</p>
-                </div>
-            </div>
-            <div class="card-content">
-                <span class="category-tag">รายการทีวี / สารคดี</span>
+                <span class="category-tag">TV / Documentary</span>
                 <h3>ภูตผีวิถีฅน</h3>
                 <p>งานตัดต่อและเกรดสีสารคดี ถ่ายทอดมิติความเชื่อ เรื่องเล่า และคติชาวบ้าน</p>
                 <div class="tech-tags">
@@ -241,34 +780,26 @@
             </div>
         </a>
 
-        <!-- ซีรีส์ 1: สูตรรักไม่รู้ลืม -->
-        <a href="https://www.thaipbs.or.th/program/TheRecipe" target="_blank" class="portfolio-card" data-category="series color">
+        <!-- Item 2: Jak Rak Su Rao -->
+        <a href="https://www.thaipbs.or.th/program/JakRakSuRao" target="_blank" class="portfolio-card reveal" data-category="tv color">
             <div class="card-thumbnail">
-                <img src="images/therecipe.png" alt="สูตรรักไม่รู้ลืม" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">🍳</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">สูตรรักไม่รู้ลืม</p>
-                </div>
+                <img src="images/jakraksurao.png" alt="สารคดี จากรากสู่เรา" onerror="this.onerror=null; this.src='jakraksurao.jpg';">
             </div>
             <div class="card-content">
-                <span class="category-tag">Series</span>
-                <h3>สูตรรักไม่รู้ลืม (The Recipe of Lasting Love)</h3>
-                <p>สัมผัสรสชาติความคิดถึง บนการเดินทางของความทรงจำและสูตรอาหารไทย</p>
+                <span class="category-tag">TV / Documentary</span>
+                <h3>จากรากสู่เรา</h3>
+                <p>งานตัดต่อและเกรดสีสารคดี ถ่ายทอดเรื่องราวรากเหง้า วัฒนธรรม และวิถีชีวิตผู้คน</p>
                 <div class="tech-tags">
-                    <span class="tech-badge">Drama Series</span>
-                    <span class="tech-badge">Color Grading</span>
+                    <span class="tech-badge">DaVinci Resolve</span>
+                    <span class="tech-badge">Documentary Grade</span>
                 </div>
             </div>
         </a>
 
-        <!-- ซีรีส์ 2: My Heartbeat -->
-        <a href="https://www.thaipbs.or.th/program/MyHeartbeat" target="_blank" class="portfolio-card" data-category="series">
+        <!-- Item 3: My Heartbeat -->
+        <a href="https://www.thaipbs.or.th/program/MyHeartbeat" target="_blank" class="portfolio-card reveal" data-category="series">
             <div class="card-thumbnail">
-                <img src="images/myheartbeat.png" alt="My Heartbeat สเต็ปรักละลายเธอ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">💓</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">My Heartbeat</p>
-                </div>
+                <img src="images/myheartbeat.png" alt="My Heartbeat" onerror="this.onerror=null; this.src='myheartbeat.jpg';">
             </div>
             <div class="card-content">
                 <span class="category-tag">Series</span>
@@ -281,75 +812,85 @@
             </div>
         </a>
 
-        <!-- ซีรีส์ 3: Sweet Sensory Season 1-2 -->
-        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card" data-category="series color">
+        <!-- Item 4: Sweet Sensory Season 1 -->
+        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card reveal" data-category="series color">
             <div class="card-thumbnail">
-                <img src="images/sweetsensory.png" alt="Sweet Sensory เรื่องรัก หลากรส" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">🍰</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">Sweet Sensory SS1-2</p>
-                </div>
+                <img src="images/sweetsensoryseason1.png" alt="Sweet Sensory Season 1" onerror="this.onerror=null; this.src='sweetsensoryseason1.jpg';">
             </div>
             <div class="card-content">
                 <span class="category-tag">Series</span>
-                <h3>Sweet Sensory เรื่องรัก หลากรส (Season 1 - 2)</h3>
-                <p>การเดินทางของความสุข กับเรื่องราวความผูกพันผ่านรสชาติและการทำอาหาร</p>
+                <h3>Sweet Sensory เรื่องรัก หลากรส (Season 1)</h3>
+                <p>การเดินทางของความสุข กับเรื่องราวความผูกพันผ่านรสชาติและการทำอาหาร ซีซั่น 1</p>
                 <div class="tech-tags">
-                    <span class="tech-badge">Season 1 & 2</span>
+                    <span class="tech-badge">Season 1</span>
                     <span class="tech-badge">DaVinci Resolve</span>
                 </div>
             </div>
         </a>
 
-        <!-- รายการตัวอย่าง Music Video -->
-        <div class="portfolio-card" data-category="mv">
+        <!-- Item 5: Sweet Sensory Season 2 -->
+        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card reveal" data-category="series color">
             <div class="card-thumbnail">
-                <img src="images/mv_showcase.png" alt="Music Video Showcase" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">🎵</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">Music Video</p>
-                </div>
+                <img src="images/sweetsensoryseason2.png" alt="Sweet Sensory Season 2" onerror="this.onerror=null; this.src='sweetsensoryseason2.jpg';">
             </div>
             <div class="card-content">
-                <span class="category-tag">Music Video</span>
-                <h3>Music Video Showcase</h3>
-                <p>ตัดต่อสอดคล้องกับจังหวะดนตรี (Beat Matching & Fast Cut)</p>
+                <span class="category-tag">Series</span>
+                <h3>Sweet Sensory เรื่องรัก หลากรส (Season 2)</h3>
+                <p>การเดินทางต่อยอดความสุข กับเรื่องราวความผูกพันผ่านรสชาติและการทำอาหาร ซีซั่น 2</p>
                 <div class="tech-tags">
-                    <span class="tech-badge">Rhythm Edit</span>
-                    <span class="tech-badge">Visual Effects</span>
+                    <span class="tech-badge">Season 2</span>
+                    <span class="tech-badge">DaVinci Resolve</span>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <!-- รายการตัวอย่าง Color Grading -->
-        <div class="portfolio-card" data-category="color">
+        <!-- Item 6: The Recipe of Lasting Love -->
+        <a href="https://www.thaipbs.or.th/program/TheRecipe" target="_blank" class="portfolio-card reveal" data-category="series color">
             <div class="card-thumbnail">
-                <img src="images/color_grading.png" alt="Color Grading Showcase" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; text-align: center; padding: 20px;">
-                    <span style="font-size: 2.2rem;">🎨</span>
-                    <p style="margin-top: 5px; font-weight: 600; color: #fff;">Color Grading Showcase</p>
-                </div>
+                <img src="images/therecipeofastinglove.png" alt="สูตรรักไม่รู้ลืม" onerror="this.onerror=null; this.src='therecipeofastinglove.jpg';">
             </div>
             <div class="card-content">
-                <span class="category-tag">Color Grading</span>
-                <h3>Cinematic Look (Sony S-Log3)</h3>
-                <p>จัดการ Color Space และเกรดสีโทนภาพยนตร์ด้วย DaVinci Resolve</p>
+                <span class="category-tag">Series</span>
+                <h3>สูตรรักไม่รู้ลืม (The Recipe of Lasting Love)</h3>
+                <p>สัมผัสรสชาติความคิดถึง บนการเดินทางของความทรงจำและสูตรอาหารไทย</p>
                 <div class="tech-tags">
-                    <span class="tech-badge">S-Log3 to Rec.709</span>
-                    <span class="tech-badge">DaVinci Wide Gamut</span>
+                    <span class="tech-badge">Drama Series</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
-        </div>
+        </a>
 
     </div>
 
     <footer>
-        <p>© Peerapon Roykaew — Video Editor & Colorist Portfolio</p>
+        <p>© 2026 PEERAPON ROYKAEW — ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
+        // ฟังก์ชันสำหรับปิดวิดีโอลอยมุมขวาล่าง
+        function closeWidget() {
+            const widget = document.getElementById('floatingWidget');
+            widget.classList.add('closed');
+        }
+
+        // Scroll Reveal
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 80) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Portfolio Filter
         function filterPortfolio(category, button) {
-            const buttons = document.querySelectorAll('.filter-btn');
+            const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -363,7 +904,21 @@
                 }
             });
         }
-    </script>
 
+        // Search Functionality
+        function searchPortfolio() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.portfolio-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
