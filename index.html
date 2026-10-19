@@ -34,7 +34,7 @@
             padding-top: 0;
         }
 
-        /* --- Top Announcement Bar (สีเทาอ่อนจางๆ สไตล์มินิมอลแบบตัวอย่าง) --- */
+        /* --- Top Announcement Bar --- */
         .announcement-bar {
             background-color: #f1f3f5; 
             color: #495057;          
@@ -61,19 +61,9 @@
             padding-right: 40px;
         }
 
-        .marquee-content span, .marquee-content .big-smile {
-            color: #6c757d;
-        }
-
-        .marquee-content strong {
-            color: #212529;
-            font-weight: 700;
-        }
-
-        .marquee-content .big-smile {
-            font-size: 1.2rem;
-            line-height: 1;
-        }
+        .marquee-content span, .marquee-content .big-smile { color: #6c757d; }
+        .marquee-content strong { color: #212529; font-weight: 700; }
+        .marquee-content .big-smile { font-size: 1.2rem; line-height: 1; }
 
         @keyframes marqueeRight {
             0% { transform: translateX(-50%); }
@@ -92,56 +82,15 @@
             gap: 20px;
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
+        .nav-left { display: flex; align-items: center; gap: 24px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; cursor: pointer; }
+        .logo-text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.5px; color: #0f172a; }
+        .nav-logo-img { height: 28px; width: auto; object-fit: contain; display: block; }
+        .nav-menu { display: flex; gap: 18px; align-items: center; }
+        .nav-menu a { color: #475569; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.3s; cursor: pointer; }
+        .nav-menu a:hover { color: #0f172a; }
 
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-
-        .logo-text {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-            color: #0f172a;
-        }
-
-        .nav-logo-img {
-            height: 28px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: #475569;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .nav-menu a:hover {
-            color: #0f172a;
-        }
-
-        /* --- Search Bar --- */
+        /* Search Bar */
         .search-container {
             flex: 1;
             max-width: 350px;
@@ -154,124 +103,172 @@
             transition: all 0.3s ease;
         }
 
-        .search-container:focus-within {
-            background-color: #ffffff;
-            border-color: #cbd5e1;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        .search-container:focus-within { background-color: #ffffff; border-color: #cbd5e1; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }
+        .search-container svg { width: 15px; height: 15px; fill: #64748b; margin-right: 8px; flex-shrink: 0; }
+        .search-input { flex: 1; border: none; background: transparent; font-size: 0.88rem; color: var(--text-main); outline: none; font-family: 'Sarabun', sans-serif; cursor: text; }
+        .search-input::placeholder { color: #64748b; }
+
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-right a.auth-link { color: #0f172a; text-decoration: none; font-size: 0.88rem; font-weight: 600; cursor: pointer; }
+        .btn-bepro { background-color: #0f172a; color: #ffffff; padding: 7px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: background 0.3s; cursor: pointer; }
+        .btn-bepro:hover { background-color: #334155; }
+        .btn-submit { background-color: #ffffff; color: #0f172a; border: 1px solid var(--card-border); padding: 7px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: background 0.3s; cursor: pointer; }
+        .btn-submit:hover { background-color: #f8f9fa; }
+
+        /* --- Dark Hero Banner Section --- */
+        .hero-banner-section {
+            position: relative;
+            width: 100%;
+            min-height: 560px;
+            background-color: #080a0f;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 90px 20px;
+            overflow: hidden;
         }
 
-        .search-container svg {
-            width: 15px;
-            height: 15px;
-            fill: #64748b;
-            margin-right: 8px;
+        /* Full Wall Animated Poster Grid */
+        .poster-grid-bg {
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            width: 250vw;
+            height: 200%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transform: translateX(-50%) rotate(-6deg) skewX(4deg);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .poster-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 210px;
             flex-shrink: 0;
         }
 
-        .search-input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            font-size: 0.88rem;
-            color: var(--text-main);
-            outline: none;
-            font-family: 'Sarabun', sans-serif;
-            cursor: text;
+        .poster-column.move-up { animation: scrollUp 45s linear infinite; }
+        .poster-column.move-down { animation: scrollDown 50s linear infinite; }
+
+        @keyframes scrollUp { 
+            0% { transform: translateY(0); } 
+            100% { transform: translateY(-50%); } 
         }
 
-        .search-input::placeholder {
-            color: #64748b;
+        @keyframes scrollDown { 
+            0% { transform: translateY(-50%); } 
+            100% { transform: translateY(0); } 
         }
 
-        /* --- Nav Right Actions --- */
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .poster-item { 
+            width: 100%; 
+            height: 280px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            background: #1e293b;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+        .poster-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(8, 10, 15, 0.4) 0%, rgba(8, 10, 15, 0.88) 80%);
+            z-index: 2;
+            pointer-events: none;
         }
 
-        .nav-right a.auth-link {
-            color: #0f172a;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .btn-bepro {
-            background-color: #0f172a;
-            color: #ffffff;
-            padding: 7px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-bepro:hover {
-            background-color: #334155;
-        }
-
-        .btn-submit {
-            background-color: #ffffff;
-            color: #0f172a;
-            border: 1px solid var(--card-border);
-            padding: 7px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-submit:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* --- Showcase Header Section --- */
-        .showcase-header {
-            text-align: center;
-            padding: 70px 20px 25px;
-            max-width: 1250px;
-            margin: 0 auto;
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 3;
+            max-width: 850px;
         }
 
         .showcase-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 12px;
             font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .showcase-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 4.8rem;
+            font-size: 5.2rem;
             font-weight: 800;
-            color: var(--text-main);
+            color: #ffffff;
             letter-spacing: -2px;
-            line-height: 1.05;
+            line-height: 1;
+            margin-bottom: 18px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
+
+        .hero-desc {
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-touch {
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-touch:hover { background-color: #e2e8f0; transform: translateY(-2px); }
+
+        .btn-follow {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-follow:hover { background-color: rgba(255, 255, 255, 0.2); }
 
         /* --- Profile Header Section --- */
         .profile-header-section {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px 50px;
-            gap: 40px;
-            align-items: center;
+            padding: 40px 20px 20px;
             border-bottom: 1px solid var(--card-border);
+            text-align: center;
         }
 
         .profile-info .avatar-badge {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .avatar-img {
@@ -294,97 +291,25 @@
             text-transform: uppercase;
         }
 
-        .profile-info h1 {
+        .profile-info h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             color: var(--text-main);
         }
 
         .profile-stats {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            justify-content: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            font-size: 0.95rem;
             flex-wrap: wrap;
         }
 
-        .profile-stats strong {
-            color: var(--text-main);
-        }
-
-        .profile-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .btn-touch {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 11px 26px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: background 0.3s, transform 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-touch:hover {
-            background-color: #333333;
-            transform: translateY(-2px);
-        }
-
-        .btn-follow {
-            background-color: #ffffff;
-            color: var(--text-main);
-            border: 1px solid var(--card-border);
-            padding: 11px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-follow:hover {
-            background-color: #f1f5f9;
-        }
-
-        /* Profile Banner Right */
-        .profile-banner-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 18px;
-            padding: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-        }
-
-        .banner-preview {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 12px;
-        }
-
-        .trusted-brands {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-top: 1px solid var(--card-border);
-            padding-top: 12px;
-            font-weight: 600;
-        }
+        .profile-stats strong { color: var(--text-main); }
 
         /* --- Navigation Tabs --- */
         .dribbble-tabs {
@@ -392,17 +317,11 @@
             margin: 0 auto;
             padding: 30px 20px 10px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .tab-list {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .tab-list { display: flex; gap: 8px; flex-wrap: wrap; }
 
         .tab-btn {
             background: transparent;
@@ -420,6 +339,44 @@
             background-color: var(--card-bg);
             color: var(--text-main);
             border-color: var(--card-border);
+        }
+
+        /* --- Sub-filter Bar (ช่องเลือกย่อยใต้งาน Color Grading) --- */
+        .sub-filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 10px 14px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .sub-filter-bar.hide-sub { display: none !important; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sub-btn {
+            background: #ffffff;
+            color: #64748b;
+            border: 1px solid #cbd5e1;
+            padding: 5px 14px;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sub-btn:hover, .sub-btn.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
         }
 
         /* --- Portfolio Showcase Grid --- */
@@ -465,13 +422,9 @@
             transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .portfolio-card:hover .card-thumbnail img {
-            transform: scale(1.05);
-        }
+        .portfolio-card:hover .card-thumbnail img { transform: scale(1.05); }
 
-        .card-content {
-            padding: 20px;
-        }
+        .card-content { padding: 20px; }
 
         .category-tag {
             display: inline-block;
@@ -513,11 +466,9 @@
             font-weight: 600;
         }
 
-        .hide {
-            display: none !important;
-        }
+        .hide { display: none !important; }
 
-        /* --- Floating Video Widget (ขนาดเล็กกะทัดรัด มุมขวาล่างสุด) --- */
+        /* --- Floating Widget --- */
         .floating-video-widget {
             position: fixed;
             bottom: 20px;
@@ -533,16 +484,9 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .floating-video-widget.closed {
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-        }
+        .floating-video-widget.closed { opacity: 0; transform: translateY(20px); pointer-events: none; }
 
-        @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
 
         .video-container-box {
             position: relative;
@@ -550,16 +494,14 @@
             height: 220px;
             border-radius: 8px;
             overflow: hidden;
-            background: #000;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .video-container-box video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .video-container-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ปุ่มปิด (X) มุมขวาบน */
         .close-btn {
             position: absolute;
             top: 14px;
@@ -577,14 +519,10 @@
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            transition: background 0.2s;
         }
 
-        .close-btn:hover {
-            background-color: #000000;
-        }
+        .close-btn:hover { background-color: #000000; }
 
-        /* บอลลูนข้อความ Hello! ด้านซ้าย */
         .hello-bubble {
             position: absolute;
             left: -75px;
@@ -600,22 +538,7 @@
             animation: bounceBubble 2s infinite ease-in-out;
         }
 
-        @keyframes bounceBubble {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @keyframes bounceBubble { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
         footer {
             text-align: center;
@@ -629,25 +552,10 @@
             font-weight: 600;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1150px) {
-            .nav-menu, .search-container { display: none; }
-        }
-
+        @media (max-width: 1150px) { .nav-menu, .search-container { display: none; } }
         @media (max-width: 900px) {
-            .showcase-title { font-size: 2.8rem; }
-            .profile-header-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 20px;
-            }
-            .profile-info .avatar-badge { justify-content: center; }
-            .profile-stats { justify-content: center; }
-            .profile-actions { justify-content: center; }
-            .profile-banner-card { display: none; }
-            .dribbble-tabs { flex-direction: column; align-items: stretch; }
+            .showcase-title { font-size: 3rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
-            .profile-info h1 { font-size: 2.1rem; }
             .floating-video-widget { width: 150px; bottom: 12px; right: 12px; }
             .video-container-box { height: 180px; }
             .hello-bubble { display: none; }
@@ -656,20 +564,16 @@
 </head>
 <body>
 
-    <!-- Floating Video Widget (มุมขวาล่างสุด ขนาดกะทัดรัด) -->
+    <!-- Floating Widget -->
     <div class="floating-video-widget" id="floatingWidget">
         <button class="close-btn" onclick="closeWidget()" title="ปิด">×</button>
         <div class="hello-bubble">Hello!</div>
         <div class="video-container-box">
-            <!-- ใส่ไฟล์วิดีโอของคุณตรง src (รองรับ .mp4) -->
-            <video autoplay muted loop playsinline>
-                <source src="intro.mp4" type="video/mp4">
-                เบราว์เซอร์ของคุณไม่รองรับการแสดงผลวิดีโอ
-            </video>
+            <img src="images/logo/logo.png" alt="Logo" onerror="this.onerror=null; this.src='logo.png';">
         </div>
     </div>
 
-    <!-- Announcement Bar with Infinite Right Marquee -->
+    <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="marquee-track">
             <div class="marquee-content">
@@ -689,8 +593,8 @@
     <nav>
         <div class="nav-left">
             <a href="#" class="logo-wrapper">
-                <span class="logo-text">PEERAPON.ROY</span>
-                <img src="images/logo/logo.jpg" alt="Logo" class="nav-logo-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                <span class="logo-text">PEERAPON.DOCS</span>
+                <img src="images/logo/logo.png" alt="Logo" class="nav-logo-img" onerror="this.onerror=null; this.src='logo.png';">
             </a>
             <div class="nav-menu">
                 <a href="#showcase">Explore</a>
@@ -701,7 +605,6 @@
             </div>
         </div>
 
-        <!-- Search Bar -->
         <div class="search-container">
             <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="text" id="searchInput" class="search-input" placeholder="Search by Inspiration" onkeyup="searchPortfolio()">
@@ -715,43 +618,119 @@
         </div>
     </nav>
 
-    <!-- Showcase Websites Header -->
-    <section class="showcase-header reveal">
-        <div class="showcase-subtitle">Honorable Mention - Oct 20, 2026</div>
-        <h1 class="showcase-title">SHOWCASE WEBSITES</h1>
-    </section>
+    <!-- Dark Hero Banner Section -->
+    <section class="hero-banner-section">
+        <div class="poster-grid-bg">
+            <!-- Column 1 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+            </div>
+            <!-- Column 2 -->
+            <div class="poster-column move-down">
+                <div class="poster-item"><img src="images/sweetsensoryseason1.png" alt="" onerror="this.src='sweetsensoryseason1.jpg'"></div>
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason2.png" alt="" onerror="this.src='sweetsensoryseason2.jpg'"></div>
+            </div>
+            <!-- Column 3 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+            </div>
+            <!-- Column 4 -->
+            <div class="poster-column move-down">
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason2.png" alt="" onerror="this.src='sweetsensoryseason2.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason1.png" alt="" onerror="this.src='sweetsensoryseason1.jpg'"></div>
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+            </div>
+            <!-- Column 5 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+            </div>
+            <!-- Column 6 -->
+            <div class="poster-column move-down">
+                <div class="poster-item"><img src="images/sweetsensoryseason1.png" alt="" onerror="this.src='sweetsensoryseason1.jpg'"></div>
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason2.png" alt="" onerror="this.src='sweetsensoryseason2.jpg'"></div>
+            </div>
+            <!-- Column 7 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+            </div>
+            <!-- Column 8 -->
+            <div class="poster-column move-down">
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason2.png" alt="" onerror="this.src='sweetsensoryseason2.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason1.png" alt="" onerror="this.src='sweetsensoryseason1.jpg'"></div>
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+            </div>
+            <!-- Column 9 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+            </div>
+            <!-- Column 10 -->
+            <div class="poster-column move-down">
+                <div class="poster-item"><img src="images/sweetsensoryseason1.png" alt="" onerror="this.src='sweetsensoryseason1.jpg'"></div>
+                <div class="poster-item"><img src="images/therecipeofastinglove.png" alt="" onerror="this.src='therecipeofastinglove.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+                <div class="poster-item"><img src="images/sweetsensoryseason2.png" alt="" onerror="this.src='sweetsensoryseason2.jpg'"></div>
+            </div>
+            <!-- Column 11 -->
+            <div class="poster-column move-up">
+                <div class="poster-item"><img src="images/myheartbeat.png" alt="" onerror="this.src='myheartbeat.jpg'"></div>
+                <div class="poster-item"><img src="images/ghoststories.png" alt="" onerror="this.src='ghoststories.jpg'"></div>
+                <div class="poster-item"><img src="images/jakraksurao.png" alt="" onerror="this.src='jakraksurao.jpg'"></div>
+                <div class="poster-item"><img src="images/mewtropolis.png" alt="" onerror="this.src='mewtropolis.jpg'"></div>
+            </div>
+        </div>
 
-    <!-- Profile Header Section -->
-    <section class="profile-header-section reveal">
-        <div class="profile-info">
-            <div class="avatar-badge">
-                <img src="images/logo/logo.jpg" alt="Peerapon Roykaew" class="avatar-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                <span class="pro-badge">PRO SELECT</span>
-            </div>
-            <h1>Video Editor, Colorist & Post-Production Specialist</h1>
-            <div class="profile-stats">
-                <span><strong>Thai PBS</strong> Projects</span>
-                <span><strong>DaVinci Resolve</strong> Expert</span>
-                <span><strong>Cinematic</strong> Grading</span>
-            </div>
-            <div class="profile-actions">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-wrapper">
+            <div class="showcase-subtitle">© 2026 PEERAPON ROYKAEW</div>
+            <h1 class="showcase-title">SHOWCASE</h1>
+            <p class="hero-desc">Video Editor, Colorist & Post-Production Specialist</p>
+            <div class="hero-actions">
                 <a href="#showcase" class="btn-touch">Get in touch</a>
                 <a href="#showcase" class="btn-follow">Explore Work</a>
             </div>
         </div>
+    </section>
 
-        <!-- Featured Banner Card Right -->
-        <div class="profile-banner-card">
-            <img src="images/jakraksurao.png" alt="Featured Project" class="banner-preview" onerror="this.onerror=null; this.src='jakraksurao.jpg';">
-            <div class="trusted-brands">
-                <span>Trusted TV Shows</span>
-                <span>Documentary & Series</span>
+    <!-- Profile Stats Section -->
+    <section class="profile-header-section">
+        <div class="profile-info">
+            <div class="avatar-badge">
+                <img src="images/logo/logo.png" alt="Peerapon Roykaew" class="avatar-img" onerror="this.onerror=null; this.src='logo.png';">
+                <span class="pro-badge">PRO SELECT</span>
+            </div>
+            <h2>Video Editing & Color Grading Portfolio</h2>
+            <div class="profile-stats">
+                <span><strong>TV & Documentary</strong> Specialist</span>
+                <span><strong>DaVinci Resolve</strong> Expert</span>
+                <span><strong>Cinematic</strong> Grading</span>
             </div>
         </div>
     </section>
 
     <!-- Navigation Tabs -->
-    <div class="dribbble-tabs reveal" id="showcase">
+    <div class="dribbble-tabs" id="showcase">
         <div class="tab-list">
             <button class="tab-btn active" onclick="filterPortfolio('all', this)">Work (All)</button>
             <button class="tab-btn" onclick="filterPortfolio('tv', this)">TV / Documentary</button>
@@ -759,13 +738,55 @@
             <button class="tab-btn" onclick="filterPortfolio('mv', this)">Music Video</button>
             <button class="tab-btn" onclick="filterPortfolio('color', this)">Color Grading</button>
         </div>
+
+        <!-- Sub-filter Bar (แสดงเมื่อกดแท็บ Color Grading) -->
+        <div class="sub-filter-bar hide-sub" id="subFilterBar">
+            <button class="sub-btn active" onclick="filterColorSub('all', this)">Color (All)</button>
+            <button class="sub-btn" onclick="filterColorSub('tv', this)">TV / Documentary</button>
+            <button class="sub-btn" onclick="filterColorSub('series', this)">Series</button>
+            <button class="sub-btn" onclick="filterColorSub('mv', this)">Music Video</button>
+        </div>
     </div>
 
     <!-- Portfolio Grid -->
     <div class="portfolio-grid" id="portfolioGrid">
         
-        <!-- Item 1: Ghost Stories -->
-        <a href="https://www.thaipbs.or.th/program/GhostStories" target="_blank" class="portfolio-card reveal" data-category="tv color">
+        <!-- Item 1: คนค้นฅน (ลิงก์ YouTube) -->
+        <a href="https://www.youtube.com/@Burabhaofficial" target="_blank" class="portfolio-card" data-category="tv color">
+            <div class="card-thumbnail">
+                <img src="images/khonkunkhon.png" alt="รายการ คนค้นฅน" onerror="this.onerror=null; this.src='images/ghoststories.png';">
+            </div>
+            <div class="card-content">
+                <span class="category-tag">TV / Documentary</span>
+                <h3>คนค้นฅน</h3>
+                <p>งานตัดต่อและเกรดสีรายการสารคดีคุณภาพ ถ่ายทอดเรื่องราวชีวิตและแรงบันดาลใจผู้คน</p>
+                <div class="tech-tags">
+                    <span class="tech-badge">YouTube</span>
+                    <span class="tech-badge">TV Program</span>
+                    <span class="tech-badge">Color Grading</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Item 2: The Explorer (ลิงก์ YouTube) -->
+        <a href="https://www.youtube.com/watch?v=eumv6xZex40" target="_blank" class="portfolio-card" data-category="tv color">
+            <div class="card-thumbnail">
+                <img src="images/theexplorer.png" alt="รายการ The Explorer" onerror="this.onerror=null; this.src='images/jakraksurao.png';">
+            </div>
+            <div class="card-content">
+                <span class="category-tag">TV / Documentary</span>
+                <h3>คนค้นฅน The Explorer</h3>
+                <p>งานตัดต่อและทำสีรายการสารคดีการสำรวจและการเดินทางสไตล์ Cinematic</p>
+                <div class="tech-tags">
+                    <span class="tech-badge">YouTube</span>
+                    <span class="tech-badge">The Explorer</span>
+                    <span class="tech-badge">Color Grading</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Item 3: Ghost Stories -->
+        <a href="https://www.thaipbs.or.th/program/GhostStories" target="_blank" class="portfolio-card" data-category="tv color">
             <div class="card-thumbnail">
                 <img src="images/ghoststories.png" alt="สารคดี ภูตผีวิถีฅน" onerror="this.onerror=null; this.src='ghoststories.jpg';">
             </div>
@@ -776,12 +797,13 @@
                 <div class="tech-tags">
                     <span class="tech-badge">DaVinci Resolve</span>
                     <span class="tech-badge">Cinematic Look</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
         </a>
 
-        <!-- Item 2: Jak Rak Su Rao -->
-        <a href="https://www.thaipbs.or.th/program/JakRakSuRao" target="_blank" class="portfolio-card reveal" data-category="tv color">
+        <!-- Item 4: Jak Rak Su Rao -->
+        <a href="https://www.thaipbs.or.th/program/JakRakSuRao" target="_blank" class="portfolio-card" data-category="tv color">
             <div class="card-thumbnail">
                 <img src="images/jakraksurao.png" alt="สารคดี จากรากสู่เรา" onerror="this.onerror=null; this.src='jakraksurao.jpg';">
             </div>
@@ -792,12 +814,13 @@
                 <div class="tech-tags">
                     <span class="tech-badge">DaVinci Resolve</span>
                     <span class="tech-badge">Documentary Grade</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
         </a>
 
-        <!-- Item 3: My Heartbeat -->
-        <a href="https://www.thaipbs.or.th/program/MyHeartbeat" target="_blank" class="portfolio-card reveal" data-category="series">
+        <!-- Item 5: My Heartbeat -->
+        <a href="https://www.thaipbs.or.th/program/MyHeartbeat" target="_blank" class="portfolio-card" data-category="series color">
             <div class="card-thumbnail">
                 <img src="images/myheartbeat.png" alt="My Heartbeat" onerror="this.onerror=null; this.src='myheartbeat.jpg';">
             </div>
@@ -808,12 +831,13 @@
                 <div class="tech-tags">
                     <span class="tech-badge">Offline Edit</span>
                     <span class="tech-badge">Storytelling</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
         </a>
 
-        <!-- Item 4: Sweet Sensory Season 1 -->
-        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card reveal" data-category="series color">
+        <!-- Item 6: Sweet Sensory Season 1 -->
+        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card" data-category="series color">
             <div class="card-thumbnail">
                 <img src="images/sweetsensoryseason1.png" alt="Sweet Sensory Season 1" onerror="this.onerror=null; this.src='sweetsensoryseason1.jpg';">
             </div>
@@ -824,12 +848,13 @@
                 <div class="tech-tags">
                     <span class="tech-badge">Season 1</span>
                     <span class="tech-badge">DaVinci Resolve</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
         </a>
 
-        <!-- Item 5: Sweet Sensory Season 2 -->
-        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card reveal" data-category="series color">
+        <!-- Item 7: Sweet Sensory Season 2 -->
+        <a href="https://www.thaipbs.or.th/program/SweetSensory" target="_blank" class="portfolio-card" data-category="series color">
             <div class="card-thumbnail">
                 <img src="images/sweetsensoryseason2.png" alt="Sweet Sensory Season 2" onerror="this.onerror=null; this.src='sweetsensoryseason2.jpg';">
             </div>
@@ -840,12 +865,13 @@
                 <div class="tech-tags">
                     <span class="tech-badge">Season 2</span>
                     <span class="tech-badge">DaVinci Resolve</span>
+                    <span class="tech-badge">Color Grading</span>
                 </div>
             </div>
         </a>
 
-        <!-- Item 6: The Recipe of Lasting Love -->
-        <a href="https://www.thaipbs.or.th/program/TheRecipe" target="_blank" class="portfolio-card reveal" data-category="series color">
+        <!-- Item 8: The Recipe of Lasting Love -->
+        <a href="https://www.thaipbs.or.th/program/TheRecipe" target="_blank" class="portfolio-card" data-category="series color">
             <div class="card-thumbnail">
                 <img src="images/therecipeofastinglove.png" alt="สูตรรักไม่รู้ลืม" onerror="this.onerror=null; this.src='therecipeofastinglove.jpg';">
             </div>
@@ -860,6 +886,23 @@
             </div>
         </a>
 
+        <!-- Item 9: MEWTROPOLIS Music Video -->
+        <a href="https://www.youtube.com/" target="_blank" class="portfolio-card" data-category="mv color">
+            <div class="card-thumbnail">
+                <img src="images/mewtropolis.png" alt="MEWTROPOLIS Music Video" onerror="this.onerror=null; this.src='mewtropolis.jpg';">
+            </div>
+            <div class="card-content">
+                <span class="category-tag">Music Video</span>
+                <h3>MEWTROPOLIS (feat. Mew Suppasit)</h3>
+                <p>งานตัดต่อสไตล์มิวสิกวิดีโอและเกรดสี เติมเต็มอารมณ์และจังหวะของบทเพลงอย่างลงตัว</p>
+                <div class="tech-tags">
+                    <span class="tech-badge">Music Video</span>
+                    <span class="tech-badge">Creative Edit</span>
+                    <span class="tech-badge">Color Grading</span>
+                </div>
+            </div>
+        </a>
+
     </div>
 
     <footer>
@@ -867,32 +910,25 @@
     </footer>
 
     <script>
-        // ฟังก์ชันสำหรับปิดวิดีโอลอยมุมขวาล่าง
         function closeWidget() {
-            const widget = document.getElementById('floatingWidget');
-            widget.classList.add('closed');
+            document.getElementById('floatingWidget').classList.add('closed');
         }
 
-        // Scroll Reveal
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            reveals.forEach(reveal => {
-                const revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 80) {
-                    reveal.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Portfolio Filter
         function filterPortfolio(category, button) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+
+            const subBar = document.getElementById('subFilterBar');
+
+            if (category === 'color') {
+                subBar.classList.remove('hide-sub');
+                const subBtns = document.querySelectorAll('.sub-btn');
+                subBtns.forEach(b => b.classList.remove('active'));
+                subBtns[0].classList.add('active');
+            } else {
+                subBar.classList.add('hide-sub');
+            }
 
             const cards = document.querySelectorAll('.portfolio-card');
             cards.forEach(card => {
@@ -905,7 +941,22 @@
             });
         }
 
-        // Search Functionality
+        function filterColorSub(subCategory, button) {
+            const subBtns = document.querySelectorAll('.sub-btn');
+            subBtns.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const cards = document.querySelectorAll('.portfolio-card');
+            cards.forEach(card => {
+                const categories = card.getAttribute('data-category').split(' ');
+                if (categories.includes('color') && (subCategory === 'all' || categories.includes(subCategory))) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
+
         function searchPortfolio() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('.portfolio-card');
